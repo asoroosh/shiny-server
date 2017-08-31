@@ -1,3 +1,4 @@
+library(R.matlab)
 server<-function(input, output, session) {
   
   HCPMeta <- reactive({
