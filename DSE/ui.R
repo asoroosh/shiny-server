@@ -31,11 +31,11 @@ fluidPage(
   fluidRow(
     column(4,
            hr(),
-           plotOutput("out3",width = 400)
+           plotOutput("HCPPlot",width = 400)
     ),
     column(6,
            hr(),
-           plotOutput('out4',width = 400)
+           plotOutput('PCPPlot',width = 650)
     )
   ),  
   fluidRow(

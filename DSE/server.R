@@ -25,7 +25,7 @@ server<-function(input, output, session) {
   })
   
   #--------------------------------------------------------------------
-  output$out3 <- renderPlot({
+  output$HCPPlot <- renderPlot({
     HCPMeta=HCPMeta()
     
     Dcol=rgb(1, 0, 0, 0.5);
@@ -41,7 +41,7 @@ server<-function(input, output, session) {
     axis(1,at = HCPMeta$xcentre,labels = ('FPP'),xlim = c(HCPMeta$xcentre-.5,HCPMeta$xcentre+.5),ylim = YlimTmp)
     })
   #--------------------------------------------------------------------
-  output$out1 <- renderPrint({
+  output$out1 <- renderText({
     HCPMeta=HCPMeta()
     HCP_Into_texts=paste(input$HCP,' # of Subjects: ', HCPMeta$nsub,sep = '')
     HCP_Into_texts},quoted = FALSE)
@@ -64,10 +64,11 @@ server<-function(input, output, session) {
     nsub=dim(S)[1]
     
     set.seed(1);
-    xtick<-list("niak"=rnorm(nsub,mean = 3,sd = 0.02),
-                "ccs"=rnorm(nsub,mean = 3,sd = 0.02),
-                "cpac"=rnorm(nsub,mean = 3,sd = 0.02),
-                "dparsf"=rnorm(nsub,mean = 3,sd = 0.02))
+    xtick=rnorm(nsub,mean = 3,sd = 0.02)
+    #xtick<-list("niak"=rnorm(nsub,mean = 3,sd = 0.02),
+    #            "ccs"=rnorm(nsub,mean = 3,sd = 0.02),
+    #            "cpac"=rnorm(nsub,mean = 3,sd = 0.02),
+    #            "dparsf"=rnorm(nsub,mean = 3,sd = 0.02))
 
     S = S[,1]
     D = D[,1]
@@ -87,7 +88,7 @@ server<-function(input, output, session) {
   })
   #--------------------------------------------------------------------
   
-  output$out4 <- renderPlot({
+  output$PCPPlot <- renderPlot({
     PCPMeta=PCPMeta()
         
     PL=PCPMeta$xcentre; minPL=min(PL); maxPL=max(PL);
