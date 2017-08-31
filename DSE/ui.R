@@ -72,9 +72,10 @@ fluidPage(
               Email Soroosh Afyouni <srafyouni@gmail.com> or Thomas Nichols <thomas.nichols@bdi.ox.ac.uk>"),
            h5("Citation:"),
            p("Afyouni, Soroosh, and Thomas E. Nichols. Insight and Inference for DVARS. bioRxiv (2017). doi: https://doi.org/10.1101/125021"),
-           h6("Neuroimaging Statistics Oxford (NISOx)")
-	   h6("Oxford Big Data Institute (BDI)")
-	   h6("http://nisox.org | https://www.bdi.ox.ac.uk/")
+           h6("______________________________________________"),
+           h6("Neuroimaging Statistics Oxford (NISOx)"),
+	         h6("Oxford Big Data Institute (BDI)"),
+	         h6("http://nisox.org | https://www.bdi.ox.ac.uk/")
            )
     )
   )
