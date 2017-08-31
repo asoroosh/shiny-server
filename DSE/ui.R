@@ -31,11 +31,11 @@ fluidPage(
   fluidRow(
     column(4,
            hr(),
-           plotOutput("out3")
+           plotOutput("out3",width = 400)
     ),
     column(6,
            hr(),
-           plotOutput('out4')
+           plotOutput('out4',width = 400)
     )
   ),  
   fluidRow(

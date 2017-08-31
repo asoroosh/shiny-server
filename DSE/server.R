@@ -64,7 +64,10 @@ server<-function(input, output, session) {
     nsub=dim(S)[1]
     
     set.seed(1);
-    xtick=rnorm(nsub,mean = 3,sd = 0.02)
+    xtick<-list("niak"=rnorm(nsub,mean = 3,sd = 0.02),
+                "ccs"=rnorm(nsub,mean = 3,sd = 0.02),
+                "cpac"=rnorm(nsub,mean = 3,sd = 0.02),
+                "dparsf"=rnorm(nsub,mean = 3,sd = 0.02))
 
     S = S[,1]
     D = D[,1]
