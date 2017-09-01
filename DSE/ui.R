@@ -1,6 +1,7 @@
 fluidPage(
   headerPanel("Data Quality Control by DSE Decomposition"),
   br(),
+  #============================================================================
   fluidRow(
     column(4,
            h4("HCP"),
@@ -11,8 +12,10 @@ fluidPage(
            p("530 healthy subjects across 20 acquisition sites from Autism Brain Imaging Data Exchange. \
              Fully pre-processed images downloaded from Pre-processed Connectome Proejct (PCP). \
              [date accessed: 15/8/2017]")
-           )
+           ),
+    column(1)
     ),
+  #============================================================================
   fluidRow(
     column(4,
            hr(),
@@ -28,6 +31,7 @@ fluidPage(
            verbatimTextOutput('out2')
     )
   ),
+  #============================================================================
   fluidRow(
     column(4,
            hr(),
@@ -37,7 +41,8 @@ fluidPage(
            hr(),
            plotOutput('PCPPlot',width = 650)
     )
-  ),  
+  ),
+  #============================================================================
   fluidRow(
     column(4,
            hr(),
@@ -48,22 +53,24 @@ fluidPage(
            sliderInput("PCPSB","Percentile of %Svar-%Dvar:", min = 0, max = 100, value = 75,width = 650)
     )
   ),  
-  fluidRow(
-    column(4,
-           hr(),
-           h6("%Dvar:"),
-           verbatimTextOutput("DHCPSum"),
-           h6("%Svar:"),
-           verbatimTextOutput("SHCPSum")           
-    ),
-    column(6,
-           hr(),
-           h6("%Dvar:"),
-           verbatimTextOutput("DPCPSum"),
-           h6("%Svar:"),
-           verbatimTextOutput("SPCPSum")           
-    )
-  ), 
+  #============================================================================
+#  fluidRow(
+#    column(4,
+#           hr(),
+#           h6("%Dvar:"),
+#           h6("%Svar:"),
+#           verbatimTextOutput("DHCPSum"),
+#           verbatimTextOutput("SHCPSum")           
+#    ),
+#    column(6,
+#           h6("%Dvar:"),
+#           verbatimTextOutput("DPCPSum"),
+#           hr(),
+#           h6("%Svar:"),
+#           verbatimTextOutput("SPCPSum")           
+#    )
+#  ),
+  #============================================================================
   fluidRow(
     column(2),
     column(6,
