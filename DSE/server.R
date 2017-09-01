@@ -39,6 +39,7 @@ server<-function(input, output, session) {
     par(new=TRUE)
     plot(c(HCPMeta$xcentre-.5,HCPMeta$xcentre+.5),c(50,50),type = "l",xaxt='n',yaxt='n',xlab = 'Processing Level',ylab = '%A-var')
     axis(1,at = HCPMeta$xcentre,labels = ('FPP'),xlim = c(HCPMeta$xcentre-.5,HCPMeta$xcentre+.5),ylim = YlimTmp)
+    legend("topright",'groups',legend = c('%S-var','%D-var'),pch = c(16,16),col =c('red','blue'),cex=0.8)
     })
   #--------------------------------------------------------------------
   output$out1 <- renderText({
@@ -119,6 +120,7 @@ server<-function(input, output, session) {
     axis(1,at = PCPMeta$xcentre,labels = c('ccs','cpac','niak','dparsf'),ylim = YlimTmp)
     par(new=TRUE)
     plot(c(minPL-.5,maxPL+.5),c(50,50),type = "l",xaxt='n',yaxt='n',xlab = 'Pipileline',ylab = '%A-var')
+    legend("topright",'groups',legend = c('%S-var','%D-var'),pch = c(16,16),col =c('red','blue'),cex=0.8)
   })
   #--------------------------------------------------------------------
   output$out2 <- renderText({
