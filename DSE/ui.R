@@ -5,13 +5,14 @@ fluidPage(
   fluidRow(
     column(4,
            h4("HCP"),
-           p("100 unrelated fully pre-processed (FPP) subjects of the Human Connectome Proeject. [date accessed: 15/8/2017]")
+           p("100 unrelated fully pre-processed (FPP) subjects of the Human Connectome Proeject. [accessed: 15/8/2017]")
            ),
     column(6,
            h4("ABIDE"),
            p("530 healthy subjects across 20 acquisition sites from Autism Brain Imaging Data Exchange. \
-             Fully pre-processed images downloaded from Pre-processed Connectome Proejct (PCP). \
-             [date accessed: 15/8/2017]")
+             Fully pre-processed images downloaded from Pre-processed Connectome Proejct (PCP) where each \
+             subject was analysed across four resting-state pipelines; CCS, CPAC, NIAK, DPARSF. 
+             [accessed: 15/8/2017]")
            ),
     column(1)
     ),
