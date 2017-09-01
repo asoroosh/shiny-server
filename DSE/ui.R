@@ -14,7 +14,7 @@ fluidPage(
              subject was analysed across four resting-state pipelines; CCS, CPAC, NIAK, DPARSF. 
              [accessed: 15/8/2017]")
            ),
-    column(1)
+    column(2)
     ),
   #============================================================================
   fluidRow(
@@ -30,7 +30,8 @@ fluidPage(
                                                      'SDSU','STANFORD','TRINITY','UCLA_1','UCLA_2',
                                                      'UM_1','UM_2','USM','YALE'), selectize=FALSE,width = 650),
            verbatimTextOutput('out2')
-    )
+    ),
+    column(2)
   ),
   #============================================================================
   fluidRow(
