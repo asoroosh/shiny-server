@@ -3,15 +3,6 @@ library(shinythemes)
 
 server <- function(input, output, session) {
 
-#  observe({
-#    x <- input$DSAd
-    
-    #switch(x,
-           #"HCP"   = updateSelectInput(session, "StAd",choices = c('100Unrelated'), selected = ch[1]),
-  #         "ABIDE" = updateSelectInput(session, "StAd",choices = c('NYU','CALTECH'), selected = ch[1])
-    #)
-  #})
-  
   #-------------------------------------------------
   
   output$SiteSelect <- renderUI({
@@ -29,7 +20,10 @@ server <- function(input, output, session) {
   #-------------------------------------------------
   #StAd <- reactive({ input$StAd })
   #StAd()
-      
+
+  output$instructions <- renderText("Some text")
+  
+        
   DSMeta <- function(WhichComp){
     StAd <- reactive({
       input$StAd

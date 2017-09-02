@@ -39,7 +39,20 @@ library(shinythemes)
                         )
                ),
                #Contact=====================================================
-               tabPanel("Contacts", "Under Construction!")
+               tabPanel("Contacts", 
+                      fluidRow(column(width=4),
+                               column(width=4, align = "left",
+                                      h2('Help us expand this page'),
+                                      p('We are actively seeking to add other openly available data-sets to this page. Please contact us if you have any pre-processed data-sets and want to publicly evaluate their quality via DSE decomposition.'),
+                                      p('Email Soroosh Afyouni <srafyouni@gmail.com> or Thomas Nichols <thomas.nichols@bdi.ox.ac.uk>')),
+                               column(width =4)),
+                      
+                      fluidRow(column(width = 4),
+                               column(width = 4, align = "left",
+                               h3('Citation:'),
+                               p('S. Afyouni and T.E. Nichols. Insight and Inference for DVARS. bioRxiv (2017). doi: https://doi.org/10.1101/125021')),
+                               column(width = 4))
+               )
     )
   )
   
