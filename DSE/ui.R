@@ -1,91 +1,48 @@
-fluidPage(
-  headerPanel("Data Quality Control by DSE Decomposition"),
-  br(),
-  #============================================================================
-  fluidRow(
-    column(4,
-           h4("HCP"),
-           p("100 unrelated fully pre-processed (FPP) subjects of the Human Connectome Proeject. [accessed: 15/8/2017]")
-           ),
-    column(6,
-           h4("ABIDE"),
-           p("530 healthy subjects across 20 acquisition sites from Autism Brain Imaging Data Exchange. \
-             Fully pre-processed images downloaded from Pre-processed Connectome Proejct (PCP) where each \
-             subject was analysed across four resting-state pipelines; CCS, CPAC, NIAK, DPARSF. 
-             [accessed: 15/8/2017]")
-           ),
-    column(2)
-    ),
-  #============================================================================
-  fluidRow(
-    column(4,
-           hr(),
-           selectInput('HCP', 'Choose a dataset:', c('HCP'), selectize=FALSE,width = 400),
-           verbatimTextOutput('out1')
-    ),
-    column(6,
-           hr(),
-           selectInput('PCP', 'Choose a dataset:', c('CALTECH','CMU','KKI','LEUVEN_1','LEUVEN_2',
-                                                     'MAX_MUN','NYU','OHSU','OLIN','PITT','SBL',
-                                                     'SDSU','STANFORD','TRINITY','UCLA_1','UCLA_2',
-                                                     'UM_1','UM_2','USM','YALE'), selectize=FALSE,width = 650),
-           verbatimTextOutput('out2')
-    ),
-    column(2)
-  ),
-  #============================================================================
-  fluidRow(
-    column(4,
-           hr(),
-           plotOutput("HCPPlot",width = 400)
-    ),
-    column(6,
-           hr(),
-           plotOutput('PCPPlot',width = 650)
-    )
-  ),
-  #============================================================================
-  fluidRow(
-    column(4,
-           hr(),
-           sliderInput("HCPSB","Percentile of %Svar-%Dvar:", min = 0, max = 100, value = 75,width = 400)
-    ),
-    column(6,
-           hr(),
-           sliderInput("PCPSB","Percentile of %Svar-%Dvar:", min = 0, max = 100, value = 75,width = 650)
-    )
-  ),  
-  #============================================================================
-#  fluidRow(
-#    column(4,
-#           hr(),
-#           h6("%Dvar:"),
-#           h6("%Svar:"),
-#           verbatimTextOutput("DHCPSum"),
-#           verbatimTextOutput("SHCPSum")           
-#    ),
-#    column(6,
-#           h6("%Dvar:"),
-#           verbatimTextOutput("DPCPSum"),
-#           hr(),
-#           h6("%Svar:"),
-#           verbatimTextOutput("SPCPSum")           
-#    )
-#  ),
-  #============================================================================
-  fluidRow(
-    column(2),
-    column(6,
-           h5("Help us expand this page:"),
-           p("We are actively seeking to add other openly available data-sets to this page. Please contact us if you have any pre-processed data-sets and want to publicly evaluate their quality via DSE decomposition.\n
-              Email Soroosh Afyouni <srafyouni@gmail.com> or Thomas Nichols <thomas.nichols@bdi.ox.ac.uk>"),
-           h5("Citation:"),
-           p("Afyouni, Soroosh, and Thomas E. Nichols. Insight and Inference for DVARS. bioRxiv (2017). doi: https://doi.org/10.1101/125021"),
-           h6("______________________________________________"),
-           h6("Neuroimaging Statistics Oxford (NISOx)"),
-	         h6("Oxford Big Data Institute (BDI)"),
-	         h6("http://nisox.org | https://www.bdi.ox.ac.uk/")
-           )
+library(R.matlab)
+library(shinythemes)
+#shinyApp(
+  ui <- tagList(
+    #shinythemes::themeSelector(),
+    navbarPage(theme = shinytheme("darkly"),
+               # theme = "cerulean",  # <--- To use a theme, uncomment this
+               "NISOx.org",
+               tabPanel("DSE Decomposition",
+                        #start of slide bar===================================================== 
+                        sidebarPanel(
+                          selectInput('DSAd', label = 'Choose a dataset:', choices = c('HCP','ABIDE'), selectize=FALSE,selected = 'HCP'),
+                          #------
+                          #selectInput("StAd", label = "Select a site:",  choices = c('100Unrelated'),selectize = FALSE,selected = '100Unrelated'),
+                          uiOutput('SiteSelect'),
+                          #------
+                          sliderInput("DSFilter","Percentile of %Svar-%Dvar:", min = 0, max = 100, value = 75),
+                          checkboxInput('NormBot', 'Normalised by A-var', value = TRUE)
+                        ), 
+                        #end of slide bar=====================================================
+                        #===================================================================== 
+                        #=====================================================================    
+                        mainPanel(
+                          tabsetPanel(
+                            #Whole=====================================================
+                            tabPanel("Whole Variability",
+                                     plotOutput("DSPlot_Whole")
+                            ),
+                            #Global=====================================================
+                            tabPanel("Global Variability", 
+                                     plotOutput("DSPlot_Global")         
+                            )
+                            #Global=====================================================
+                            #tabPanel("Non-global Variability", 
+                            #         plotOutput("DSPlot_nGlobal")
+                            #)
+                            #End of Tabs=====================================================
+                          )
+                        )
+               ),
+               #Contact=====================================================
+               tabPanel("Contacts", "Under Construction!")
     )
   )
   
+  #================================================================================================
+  #================================================================================================
+#)
