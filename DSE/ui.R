@@ -2,7 +2,8 @@ library(R.matlab)
 library(shinythemes)
 #shinyApp(
   ui <- tagList(
-    #shinythemes::themeSelector(),
+    tags$head(includeScript("GAnalytics.js")),
+
     navbarPage(theme = shinytheme("darkly"),
                # theme = "cerulean",  # <--- To use a theme, uncomment this
                "NISOx.org",
