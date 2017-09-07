@@ -122,7 +122,7 @@ server <- function(input, output, session) {
     else {
       YlimTmp=c(-.01,22) 
       RefLine=c(0,0)
-      ylabtog="Successive Difference (MSSD)"}
+      ylabtog="Mean Squared Variability"}
     
     if (sum(grepl('g',WhichComp))>0){
       legendstr=c('%S_G-var','%D_G-var');

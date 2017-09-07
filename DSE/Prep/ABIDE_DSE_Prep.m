@@ -9,7 +9,7 @@ for st=Site_ids'
     for pl=PipeList
         fileid=cont_file_id{st_cnt};
         for s=1:Sites_nsub(st_cnt)
-            load(['/Users/sorooshafyouni/Home/PCP/DSE/R/R_' st{1} '_' pl{1} '/DSE_' fileid{s} '_' pl{1} '.mat'],'DSEstat','V')
+            load(['/Users/sorooshafyouni/Home/DVARS/fMRIDiag/PCP/DSE/R/R_' st{1} '_' pl{1} '/DSE_' fileid{s} '_' pl{1} '.mat'],'DSEstat','V')
 %------------------------------------------------------------------
             pD(s,pl_cnt)=DSEstat.Prntg(2);
             pS(s,pl_cnt)=DSEstat.Prntg(3);
